@@ -8,6 +8,21 @@ import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { AngularFireModule } from 'angularfire2';
+import { firebaseConfig } from '../env/env';
+import { ProdutosProvider } from '../providers/produtos/produtos';
+
+
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/Database';
+import { IonicStorageModule } from '@ionic/storage';
+import { HttpClientModule } from '@angular/common/http';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireStorageModule } from 'angularfire2/storage'
+import { FirebaseStorageProvider } from '../providers/firebase-storage/firebase-storage';
+import { Storage } from '@ionic/storage';
+
+
 
 @NgModule({
   declarations: [
@@ -18,6 +33,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig),
+
+    AngularFireDatabaseModule,
+    IonicStorageModule.forRoot(),
+    AngularFirestoreModule,
+    HttpClientModule,
+    AngularFireStorageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -28,7 +50,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ProdutosProvider,
+    FirebaseStorageProvider,
   ]
 })
 export class AppModule {}

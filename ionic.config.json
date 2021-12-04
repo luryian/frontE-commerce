@@ -1,5 +1,7 @@
 {
   "name": "frontE-commerce",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }

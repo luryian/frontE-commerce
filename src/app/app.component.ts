@@ -1,3 +1,4 @@
+import { Storage } from '@ionic/storage';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -17,7 +18,7 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public menuController: MenuController,) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public menuController: MenuController, private storage: Storage ) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -26,6 +27,7 @@ export class MyApp {
       { title: 'Carrinho', component: 'CarrinhoPage' },
       { title: 'Meus Pedidos', component: 'MeusPage' },
       { title: 'Favoritos', component: 'FavoritosPage' },
+      { title: 'Cadastrar', component: 'CadastrarPage' }
     ];
 
   }
